@@ -1,5 +1,7 @@
-FROM openjdk:17
-VOLUME /tmp
-EXPOSE 8080
-COPY target/task-1.0.1-SNAPSHOT.jar task.jar
-ENTRYPOINT ["java","-jar","/task.jar"]
+FROM maven:3.8.5-openjdk-17
+
+WORKDIR /task-api
+COPY . .
+RUN mvn clean install -DskipTests
+
+CMD mvn spring-boot:run

@@ -13,11 +13,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '8081'
+      - 8081:8081
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/robicdb
-      - spring.datasource.username= robic
-      - spring.datasource.password= robic
-      - spring.jpa.hibernate.ddl-auto= update
+      - spring.datasource.username=robic
+      - spring.datasource.password=robic
+      - spring.jpa.hibernate.ddl-auto=update
     depends_on:
       - postgres
