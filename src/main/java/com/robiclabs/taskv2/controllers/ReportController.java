@@ -65,6 +65,27 @@ public class ReportController {
         }
     }
 
+    @PutMapping("/report/{id}")
+    public ResponseEntity<Report> updateReport(@PathVariable("id") Long id, @RequestBody Report report){
+        Optional<Report> reportFound = reportRepository.findById(id);
+        if(reportFound.isPresent()){
+            Report newReport = reportFound.get();
+
+            newReport.setNote(report.getNote());
+            newReport.setTitle(report.getTitle());
+            newReport.setAssignedTo(report.getAssignedTo());
+            newReport.setCreatedAt(LocalTime.now());
+            newReport.setCreatedOn(LocalDate.now());
+
+            Report updated = reportRepository.save(newReport);
+
+            return new ResponseEntity<>(updated, HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
     @DeleteMapping("/report")
     public ResponseEntity<HttpStatus> deleteReport(@PathVariable("id") Long id){
         try{
