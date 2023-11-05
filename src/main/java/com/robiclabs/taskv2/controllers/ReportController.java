@@ -12,6 +12,7 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class ReportController {
@@ -65,7 +66,7 @@ public class ReportController {
         }
     }
 
-    @PutMapping("/report/{id}")
+    @PutMapping("/reports/{id}")
     public ResponseEntity<Report> updateReport(@PathVariable("id") Long id, @RequestBody Report report){
         Optional<Report> reportFound = reportRepository.findById(id);
         if(reportFound.isPresent()){
@@ -86,7 +87,7 @@ public class ReportController {
         }
     }
 
-    @DeleteMapping("/report")
+    @DeleteMapping("/reports/{id}")
     public ResponseEntity<HttpStatus> deleteReport(@PathVariable("id") Long id){
         try{
             reportRepository.deleteById(id);

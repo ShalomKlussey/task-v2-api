@@ -7,9 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReportService {
 
-    @Autowired
-    private ReportRepository reportRepository;
-
-
 
 }
