@@ -1,0 +1,6 @@
+name: Task Api Github Action
+
+on:
+  push:
+    branches:
+      - main
