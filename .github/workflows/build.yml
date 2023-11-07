@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-  test:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v3
