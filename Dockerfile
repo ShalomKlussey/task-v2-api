@@ -1,7 +1,5 @@
-FROM maven:3.8.5-openjdk-17
+FROM openjdk:11
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
 
-WORKDIR /task-api
-COPY . .
-RUN mvn clean install -DskipTests
-
-CMD mvn spring-boot:run
