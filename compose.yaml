@@ -12,7 +12,7 @@ services:
 
   task-v2-api:
     build: .
-    container_name: spring-app
+    container_name: task-app
     depends_on:
       - postgres
     ports:
