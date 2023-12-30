@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: pass-admin
     ports:
       - "5432:5432"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   task-v2-api:
     build: .
