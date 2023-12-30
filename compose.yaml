@@ -1,23 +1,20 @@
+version: '3'
 services:
   postgres:
-    image: 'postgres:latest'
+    image: postgres
     container_name: postgres
     environment:
-      - 'POSTGRES_DB=robicdb'
-      - 'POSTGRES_PASSWORD=robic'
-      - 'POSTGRES_USER=robic'
+      POSTGRES_DB: task-db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass-admin
     ports:
-      - '5432'
-  task:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8081:8081
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/robicdb
-      - spring.datasource.username=robic
-      - spring.datasource.password=robic
-      - spring.jpa.hibernate.ddl-auto=update
+      - "5432:5432"
+
+  task-v2-api:
+    build: .
+    container_name: spring-app
     depends_on:
       - postgres
+    ports:
+      - "8081:8081"
+
