@@ -1,5 +1,9 @@
 # task-v2-api
 
+## Start
+ - mvn clean package -DskipTests
+ - docker-compose up --build
+
 ## OpenAPI
 http://localhost:8081/v3/api-docs
 
