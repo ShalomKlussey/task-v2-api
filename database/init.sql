@@ -1,9 +1,8 @@
-CREATE TABLE IF NOT EXISTS task (
-   id BIGINT NOT NULL,
+CREATE TABLE IF NOT EXISTS tasks (
+   id SERIAL PRIMARY KEY,
    title VARCHAR(255),
-   note VARCHAR(255),
-   done BOOLEAN NOT NULL,
-   CONSTRAINT pk_task PRIMARY KEY (id)
+   note TEXT,
+   done BOOLEAN DEFAULT false
 );
 
 INSERT INTO task (title, note, done) VALUES ('Report', 'Write the report on the Rail-Poc project', TRUE);
