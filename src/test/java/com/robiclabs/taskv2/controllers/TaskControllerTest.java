@@ -73,7 +73,7 @@ public class TaskControllerTest {
                 .when()
                 .post("/tasks")
                 .then()
-                .statusCode(201) // expecting HTTP 201 Created
+                .statusCode(201) // expecting HTTP 201 => Created
                 .contentType(ContentType.JSON); // expecting JSON response content
 
     }
