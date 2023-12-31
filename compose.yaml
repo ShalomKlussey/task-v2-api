@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    image: postgres
+    image: postgres:latest
     container_name: postgres
     environment:
       POSTGRES_DB: task-db
@@ -14,13 +14,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: task-V2-api
+    ports:
+      - "8081:8081"
     depends_on:
       - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/task-db
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: pass-admin
-    ports:
-      - "8081:8081"
+
 
