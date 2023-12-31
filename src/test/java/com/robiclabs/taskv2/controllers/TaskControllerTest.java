@@ -58,12 +58,11 @@ public class TaskControllerTest {
                 .when()
                 .get("/tasks")
                 .then()
-                .statusCode(200)    // expecting HTTP 200 OK
+                .statusCode(200)    // expecting HTTP 200 => OK
                 .contentType(ContentType.JSON) // expecting JSON response content
                 .body(".", hasSize(4));
 
     }
-
     @Test
     public void shouldCreateTask() {
 
