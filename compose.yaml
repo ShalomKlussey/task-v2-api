@@ -11,10 +11,16 @@ services:
       - "5432:5432"
 
   task-v2-api:
-    build: .
-    container_name: task-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-V2-api
     depends_on:
       - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/task-db
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: pass-admin
     ports:
       - "8081:8081"
 
