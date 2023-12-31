@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS task (
 );
 
 INSERT INTO task (title, note, done) VALUES ('Report', 'Write the report on the Rail-Poc project', TRUE);
-INSERT INTO task (title, note, done) VALUES ('Maintenance', 'Installing Windows Server on the desktop server' FALSE);
+INSERT INTO task (title, note, done) VALUES ('Maintenance', 'Installing Windows Server on the desktop server', FALSE);
