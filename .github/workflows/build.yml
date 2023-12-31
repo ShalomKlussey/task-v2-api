@@ -21,7 +21,7 @@ jobs:
 
       - name: Build with Maven
         run: |
-          ./mvnw clean install -B -DskipTests=false
+          ./mvnw clean package -DskipTests=false
 
       - name: Run Tests
         run: |
